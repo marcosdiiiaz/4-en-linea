@@ -11,9 +11,9 @@ class TestGame(unittest.TestCase):
     def test_definir_turnos(self):
         objeto = CuatroEnLinea()
         objeto.definir_turnos()
-        self.assertEqual(objeto.turno, 2)
-        objeto.definir_turnos()
         self.assertEqual(objeto.turno, 1)
+        objeto.definir_turnos()
+        self.assertEqual(objeto.turno, 2)
 
     def test_ganador_vertical(self):
         objeto = CuatroEnLinea()
@@ -25,7 +25,7 @@ class TestGame(unittest.TestCase):
                            [' ', '1', ' ', ' ', ' ', ' ', ' ', ' '],
                            [' ', '1', ' ', ' ', ' ', ' ', ' ', ' '],
                            [' ', '1', ' ', ' ', ' ', ' ', ' ', ' ']]
-        self.assertEqual(objeto.ganador(), 'ganaste')
+        self.assertEqual(objeto.ganador_vertical(), 0)
 
     def test_ganador_horizontal(self):
         objeto = CuatroEnLinea()
@@ -37,8 +37,7 @@ class TestGame(unittest.TestCase):
                            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
-        self.assertEqual(objeto.ganador(), 'ganaste')
-
+        self.assertEqual(objeto.ganador_horizontal(), 0)
 
     def test_ganador_diagonal_p1(self):
         objeto = CuatroEnLinea()
@@ -50,7 +49,7 @@ class TestGame(unittest.TestCase):
                            [' ', ' ', '2', '2', '2', '1', ' ', ' '],
                            [' ', '1', '1', '1', '2', '1', ' ', ' '],
                            [' ', '1', '1', '2', '2', '1', ' ', ' ']]
-        self.assertEqual(objeto.ganador(), 'ganaste')
+        self.assertEqual(objeto.ganador_diagonal_izquierdo(), 0)
 
     def test_ganador_diagonal_p2(self):
         objeto = CuatroEnLinea()
@@ -62,7 +61,7 @@ class TestGame(unittest.TestCase):
                             [' ', ' ', '2', ' ', ' ', ' ', ' ', ' '],
                             [' ', '2', ' ', ' ', ' ', ' ', ' ', ' '],
                             ['2', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
-        self.assertEqual(objeto.ganador(), 'ganaste')
+        self.assertEqual(objeto.ganador_diagonal_derecho(), 0)
 
 if __name__ == '__main__':
     unittest.main()

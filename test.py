@@ -63,5 +63,17 @@ class TestGame(unittest.TestCase):
                             ['2', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
         self.assertEqual(objeto.ganador_diagonal_derecho(), 0)
 
+    def test_empate(self):
+        objeto = CuatroEnLinea()
+        objeto.tablero = [['2', '2', '2', '1', '2', '2', '1', '2'], 
+                          ['1', '1', '1', '2', '1', '1', '2', '1'], 
+                          ['2', '2', '2', '1', '2', '2', '1', '2'], 
+                          ['1', '1', '1', '2', '1', '1', '2', '1'], 
+                          ['2', '2', '2', '1', '2', '2', '1', '2'], 
+                          ['1', '1', '1', '2', '1', '1', '2', '1'], 
+                          ['2', '2', '2', '1', '2', '2', '1', '2'], 
+                          ['1', '1', '1', '2', '1', '1', '2', '1']]
+        self.assertEqual(objeto.analizar(), 3)
+
 if __name__ == '__main__':
     unittest.main()

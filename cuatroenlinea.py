@@ -18,8 +18,6 @@ class CuatroEnLinea():
                 return self.tablero
 
     def analizar(self):
-        if self.empate() == 3:
-            self.empate()
         if self.ganador_horizontal() != 0:
             return self.ganador_horizontal()
         if self.ganador_vertical() != 0:
@@ -28,6 +26,8 @@ class CuatroEnLinea():
             return self.ganador_diagonal_derecho()
         if self.ganador_diagonal_izquierdo():
             return self.ganador_diagonal_izquierdo()
+        if self.empate() == 3:
+            return self.empate()
         return 0
 
     def ganador_horizontal(self):
@@ -114,7 +114,8 @@ class CuatroEnLinea():
                     return 0
         return 0
 
-    def empate(self, fila, columna):
-        if not any (self.tablero[fila][columna] == 0):
-            return 3
-        return 0
+    def empate(self):
+        count = 0
+        for row in self.tablero:
+            count += row.count(0)
+        return 3 if count < 1 else 0

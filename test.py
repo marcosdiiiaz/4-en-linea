@@ -75,5 +75,10 @@ class TestGame(unittest.TestCase):
                           ['1', '1', '1', '2', '1', '1', '2', '1']]
         self.assertEqual(objeto.analizar(), 3)
 
+    def definir_turnos(self):
+        objeto = CuatroEnLinea()
+        self.assertEqual(objeto.definir_turnos, 0)
+        self.assertEqual(objeto.player_turn(), '1')
+
 if __name__ == '__main__':
     unittest.main()
